@@ -3,12 +3,20 @@ import { useDispatch ,useSelector } from 'react-redux';
 import { addToFavorites, removeFromFavorites } from '../redux/actions/favoriteMoviesActions';
 
 const MovieCard = ({ movie }) => {
+  const dispatch = useDispatch();
+  const favoriteMovies = useSelector(state => state.favoriteMovies.favoriteMovies);
+  const [favorite, setFavorite] = useState(favoriteMovies.some(favMovie => favMovie.id === movie.id));
   const imdb = () => {
     window.open(`${movie.imdb_url}`, '_blank');
   };
-  const [favorite, setFavorite] = useState(false);
+  // const [favoritebtn, setFavoritebtn] = useState(false);
 
   const handleFavoriteToggle = () => {
+    if (favorite) {
+      dispatch(removeFromFavorites(movie));
+    } else {
+      dispatch(addToFavorites(movie));
+    }
     setFavorite(!favorite);
 
   };

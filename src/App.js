@@ -17,7 +17,7 @@ const App = () => {
     }}>Home</div>
     <div className='border ml-4' onClick={()=>{
       navigate("/favorites")
-    }} >Favorite</div>
+    }} >Favorites</div>
   </div>
     </div>
     <div className='routes'>
