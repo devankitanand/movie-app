@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.wrappperlistt{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+  background-color: blue;
+}
